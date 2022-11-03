@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request,json
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 
@@ -7,25 +7,23 @@ cors = CORS(app)
 
 
 
-@app.route('/pres', methods = ['POST'])
-def pres():
-    request.json 
-    map = {
-        '1':{'ID':1,'msg': 'En que te puedo aydar?','options':["Docunmento","Contacto"]},        
-    }
-    return jsonify(map['1'])
-
-
-
-
 
 @app.route('/', methods = ['POST'])
 def index():
     request.json 
-    map = {
-        '2':{'ID':1,'msg': 'hi','options':["Num Doc"]},
+    select = {
+        '1':{'ID':1,'msg': 'Hola, en que te puedo ayudar?','options':["Documento","Contacto"]},
+        '2':{'ID':2,'msg':'Bien, seleccione una opcion', 'Options':["Ambiente", "Urbanismo"]},
+        '3':{'ID':3, 'msg':'Selecione la persona con quien quiere contactarse','Options':["Autoridad","Personal"]},
+        '4':{'ID':4,'msg':'Selecione al personal','Option':["Jorge","Arellano","Antonio"]}
         }
-    return jsonify(map['2'])
+    return jsonify(select['1'])
+
+
+
+
+
+
 
 
 
@@ -58,6 +56,14 @@ def des():
     }
     
     return jsonify(map['1_A1'])
+
+@app.route ('/sub', methods = [ 'POST'])
+def sub():
+    request.json
+    map = {
+        '1':{'ID':5, 'msg':'nada','options':["Nombre1","Nombre2","Nombre3"]}
+    }
+    return jsonify(map['1'])
 
 
 
