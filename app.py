@@ -10,106 +10,61 @@ cors = CORS(app)
 
 @app.route('/', methods = ['POST'])
 def index():
-    request.json 
+    data=request.json
+    option=data['option']
+    if option=='':
+        option=1
+    option=str(option)
+    
     select = {
-        '1':{'ID':1,'msg': 'Hola, en que te puedo ayudar?','options':["Documento","Contacto"]},
-        '2':{'ID':2,'msg':'Bien, seleccione una opcion', 'Options':["Ambiente", "Urbanismo"]},
-        '3':{'ID':3, 'msg':'Selecione la persona con quien quiere contactarse','Options':["Autoridad","Personal"]},
-        '4':{'ID':4,'msg':'Selecione al personal','Option':["Jorge","Arellano","Antonio"]}
-        }
-    return jsonify(select['1'])
-
-
-
-
-
-
-
-
-
-@app.route('/contact', methods = ['POST'])
-def ins():
-    request.json 
-    map = {
-        '1':{'ID':2,'msg': 'bien','options':["Ambiente","Urbanismo"]},
-        }
-    return jsonify(map['1'])
-
-
-@app.route('/ambi', methods = ['POST'])
-def ambi():
-    request.json 
-    map = {
-        '1':{'ID':2,'msg': 'ok','options':["Gerente","Sub-Gerente"]},
-        }
-    return jsonify(map['1'])
-
-
-
-
-@app.route('/gere', methods = ['POST'])
-def des():
-    request.json 
-    map = {
-        '1_A1':{'ID':4,'msg': 'Nombre del las personas ','options':["Valeria ","Arellano","Pedro"]},
+        '1':{'ID':1,'msg': 'Hola , en que te puedo ayudar?','options':[
+            {"label":"Documento","next":''},
+            {"label":"Contacto","next":'2'}
+        ]},
         
-    }
+        '2':{'ID':2,'msg':'Bien, seleccione una opcion', 'options':[
+            {"label":"Ambiental","next":'3'},
+            {"label":"Urbanismo","next":'3'}
+        ]},
+            
+        '3':{'ID':3, 'msg':'Selecione la persona con quien quiere contactarse','options':[
+            {"label":"Autoridad","next":'5'},
+            {"label":"Personal","next":'4'}
+            
+        ]},
+        
+        '4':{'ID':4,'msg':'Selecione al personal','options':[
+            {"label":"Jorge"},
+            {"label":"Arellano"},
+            {"label":"Antonio"}
+        ]},
+        
+        '5':{'ID':5,'msg':'Selecione a la autoridad','options':[
+            {"label":"Gobernador","next":'6'},
+            {"label":"Consejero","next":'6'},
+            {"label":"Gerente","next":'6'},
+            {"label":"Sub-gerete","next":'6'}
+        ]},
+        
+        '6':{'ID':6,'msg':'Seleccione a la persona', 'options':[
+            {"label":"Juan"},
+            {"label":"Ruben"},
+            {"label":"Adiran"}
+        ]},
+        '7':{'ID':7,'input':'Escriba un codigo:'},
+        }
     
-    return jsonify(map['1_A1'])
-
-@app.route ('/sub', methods = [ 'POST'])
-def sub():
-    request.json
-    map = {
-        '1':{'ID':5, 'msg':'nada','options':["Nombre1","Nombre2","Nombre3"]}
-    }
-    return jsonify(map['1'])
-
-
-
-
-
-
-
-
-@app.route('/4', methods = ['GET'])
-def anex():
-    request.json 
-    map = {
         
-        '1_A':{'ID':2,'msg': 'bien','options':["Ambiente","Urbanismo"]},
-        '1_B':{'ID':3,'msg': 'otro','options':["Gerente","Sub-Gerente"]},
-        
-    }
-    
-    return jsonify(map['1'])
+    return jsonify(select[option])
+
+
+@app.route("/code", Method =['POST'])
+def code ():
+    o = request.json
+    input = o    
+    str(input("Ingrese un codigo:"))
+    return input
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@app.route ('/1', methods =['GET'])
-def response():
-    mensaje = ['saludos','hola']
-    return jsonify (mensaje)
-
-"""@app.route ('//1', methods =['GET'])
-def mm ():
-    """
+#str(input("Ingrese el cofigo del documento:"))
