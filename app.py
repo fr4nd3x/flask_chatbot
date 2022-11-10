@@ -68,9 +68,9 @@ def index():
             
             ]},
 
-        "8":{"ID":8, 'msg':'<div>Ingrese al siguiente link :','href':'http://sisgedo.regionancash.gob.pe/sisgedonew/app/main.php',"option":[{}]},
+        "8":{"ID":8, 'msg':'<div>Ingrese al siguiente link :','href':'http://sisgedo.regionancash.gob.pe/sisgedonew/app/main.php',"options":[{}]},
 
-        "9":{"ID":9,'msg':'Ingrese al siguiente link: <a href="#">http://sisgedo.regionancash.gob.pe/sisgedonew/app/main.php</a>','options':[{}]},
+        "9":{"ID":9,'msg':'Ingrese al siguiente link:','href':' http://sisgedo.regionancash.gob.pe/sisgedonew/app/main.php','options':[{}]},
 
         "10":{"ID":10,'msg':'Deseas continuar?',"options":[
             {"label":"SI","next":"1"},
