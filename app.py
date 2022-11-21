@@ -59,7 +59,7 @@ def index():
             {"label":"Gerencia Regional de Infraestructura","next":''},
             {"label":"Gerencia Regional de Recursos Naturales y Gestion Ambiental","next":''}
         ]},
-        
+    
         '7':{'ID':7,"msg":"Seleccione a la persona",'options':[
             {"label":"Oficina de imagen institucional","next":''},
             {"label":"Secretaria General ","next":''},
@@ -68,7 +68,7 @@ def index():
             
             ]},
 
-        "8":{"ID":8, 'msg':'<div>Ingrese al siguiente link :','href':'http://sisgedo.regionancash.gob.pe/sisgedonew/app/main.php',"options":[{}]},
+        "8":{"ID":8, 'msg':'<div>Ingrese al siguiente link :','href':'http://sisgedo.regionancash.gob.pe/sisgedonew/app/main.php',"pass":"10"},
 
         "9":{"ID":9,'msg':'Ingrese al siguiente link:','href':' http://sisgedo.regionancash.gob.pe/sisgedonew/app/main.php','options':[{}]},
 
@@ -81,6 +81,3 @@ def index():
     return jsonify(select[option])
 
 
-
-
-#<a href="/helo">aaaa</a></div>
